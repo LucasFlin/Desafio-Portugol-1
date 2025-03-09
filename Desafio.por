@@ -9,34 +9,39 @@ programa
 	
 	funcao inicio()
 	{
-		// Matriz
+		// Matriz notaAluno para ler as notas
 		inteiro notaAluno[3][4]
+		// Vetor nome aluno que atribui um nome para cada coluna 
 		cadeia nomeAluno[4] = {"Larissa", "Anderson", "Bruno", "Heloisa"}
-		// retornar tanto o nome do aluno quanto a media
+		/* Vetor mediaAluno que vai servir pra condensar a matriz de notas em uma só linha com a média
+		 *  facilitando a comparação no final
+		 */
 		inteiro mediaAluno[4]
-		// Lucas: criei esse vetor pra pegar os valores da matriz notaAluno e deixar numa linha só, igual ao nomeAluno
 
+		// Contador para mudar de linha na matriz após todas as colunas serem preenchidas
 		para(inteiro linha = 0; linha <= 2; linha++)
 		{
 
-			// Achar a coluna de uma matriz
+			// contador que pergunta a nota e vai registrando em cada coluna, passando pra proxima depois
 			para(inteiro coluna = 0; coluna <= 3; coluna++)
 			{
 				escreva("Digite a nota do aluno: ")
 				leia(notaAluno[linha][coluna])
 				mediaAluno[coluna] = notaAluno[linha][coluna]+mediaAluno[coluna]
-				// Lucas: A mediaAluno vai somando os valores das linhas de registrando o resultado em suas colunas
+				// A mediaAluno vai somando os valores das linhas de registrando o resultado em suas colunas
 			}
 		}
 
 		limpa()
-		/*Esse "para" não é mais nescessário, pois o programa vai comparar a media agora
-		Ele estava causando um loop que recauculava 4x a média e reprovava todo mundo no final*/
+		/*(comentário para a aula) tirei ess "para" que haviamos colocado pois ele estava fazendo o código se repetir
+		* 3x sem necessidade, e como agora o código vai usar só o vetor mediaAluno, um contador de linhas não é mais nescessário*/
 		//para(inteiro linha = 0; linha <= 2; linha++)
 		//{
 
+		// Contador para repetir o códico em todas as colunas
 		para(inteiro coluna = 0; coluna <= 3; coluna++)
 		{
+			// Divide a média por 3 e decide se o aluno passou ou não, mostrando na tela o resultado
 			mediaAluno[coluna] = mediaAluno[coluna]/3
 			se(mediaAluno[coluna] >= 7)
 			{
@@ -50,14 +55,3 @@ programa
 		//}
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 414; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {notaAluno, 13, 10, 9}-{mediaAluno, 16, 10, 10};
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
